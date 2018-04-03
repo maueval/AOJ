@@ -21,11 +21,11 @@ int main() {
     while (fgets(line, LINE_SIZE, stdin) != NULL) {
         if (*line == '\n')
             continue;
-        char buf[LINE_SIZE];
-        str = find_space(line, buf);
-        long num = atol(buf);
-        find_space(str + 1, buf);
-        num = num + atol(buf);
+        str = strtok(line," ");
+        int num = atoi(str);
+        str = strtok(NULL, " ");
+        num += atoi(str);
+
         int digit = 1;
         while ((num = num / 10) != 0) {
             digit++;
