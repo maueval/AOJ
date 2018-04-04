@@ -8,18 +8,11 @@ int cmp(const void *a, const void *b) {
 }
 int main() {
     char line[SIZE];
-    int n_lines = atoi(fgets(line, SIZE, stdin));
+    int n_lines;
+    scanf("%d", &n_lines);
+    int num[3];
     for (int i = 0; i < n_lines; i++) {
-        fgets(line, SIZE, stdin);
-        char *str;
-
-        int num[3];
-        str = strtok(line, " ");
-        num[0] = atoi(str);
-        str = strtok(NULL, " ");
-        num[1] = atoi(str);
-        str = strtok(NULL, " ");
-        num[2] = atoi(str);
+        scanf("%d %d %d", &num[0], &num[1], &num[2]);
 
         qsort(num, 3, sizeof(int), cmp);
 

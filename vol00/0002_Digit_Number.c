@@ -4,30 +4,13 @@
 
 #define LINE_SIZE 17 //1000000+' '+1000000+\n+\0
 
-char *find_space(char *line, char *buf) {
-    int i = 0;
-    while (*line != '\0' && *line != ' ' && *line != '\n') {
-        buf[i] = *line;
-        i++;
-        line++;
-    }
-    buf[i] = '\0';
-    return line;
-}
-
 int main() {
-    char line[LINE_SIZE];
-    char *str;
-    while (fgets(line, LINE_SIZE, stdin) != NULL) {
-        if (*line == '\n')
-            continue;
-        str = strtok(line," ");
-        int num = atoi(str);
-        str = strtok(NULL, " ");
-        num += atoi(str);
-
+    int num1, num2;
+    int sum;
+    while (~scanf("%d %d", &num1, &num2)) {
+        sum = num1 + num2;
         int digit = 1;
-        while ((num = num / 10) != 0) {
+        while ((sum = sum / 10) != 0) {
             digit++;
         }
         printf("%d\n", digit);
